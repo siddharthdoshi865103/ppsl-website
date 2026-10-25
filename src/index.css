@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply text-slate-800 bg-[#F8FAFC];
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Ultra-luxury glass card with specular light border */
+  .luxury-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+      0 4px 6px -1px rgba(9, 30, 58, 0.04),
+      0 20px 40px -15px rgba(9, 30, 58, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .luxury-glass-dark {
+    background: linear-gradient(135deg, rgba(10, 17, 40, 0.95) 0%, rgba(6, 19, 37, 0.98) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 20px 50px -10px rgba(0, 0, 0, 0.5),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  }
+
+  /* Precision metallic border shine */
+  .metallic-card {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px -5px rgba(9, 30, 58, 0.06);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .metallic-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.4), rgba(226, 232, 240, 0.8), rgba(6, 182, 212, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .metallic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(2, 132, 199, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.2);
+  }
+
+  /* Luxury deep hero gradient */
+  .hero-luxury-bg {
+    background: radial-gradient(120% 120% at 50% 0%, #FFFFFF 0%, #F0F6FC 50%, #E2EDF8 100%);
+  }
+
+  /* Interactive Hotspot pulse */
+  .hotspot-pulse {
+    position: relative;
+  }
+  .hotspot-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    background: rgba(2, 132, 199, 0.4);
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
